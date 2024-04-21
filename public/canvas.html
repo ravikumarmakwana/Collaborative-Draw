@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Whiteboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #canvas-container {
+            position: relative;
+            margin: 20px auto;
+            width: 80vw;
+            max-width: 1200px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        #canvas {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #000;
+            cursor: crosshair;
+        }
+        #toolbar {
+            text-align: center;
+            margin-top: 10px;
+        }
+        #toolbar label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        #toolbar input[type="color"],
+        #toolbar input[type="number"] {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <canvas id="canvas" width="1200" height="600"></canvas>
+    </div>
+    <div id="toolbar">
+        <label for="colorPicker">Color Selection:</label>
+        <input type="color" id="colorPicker" value="#000000">
+        <label for="sizePicker">Brush Size:</label>
+        <input type="number" id="sizePicker" min="1" max="20" value="5">
+        <input type="checkbox" id="eraserCheckbox">
+        <label for="eraserCheckbox">Eraser Mode</label>
+        <label for="roomId">Room Id:</label>
+        <input type="text" id="roomId" disabled>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
